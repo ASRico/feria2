@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noti-Feriados</title>
+  <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+<body>
+<div id="user_nav">
+    <% if user_signed_in? %>
+        Hola, <%= current_user.email %>!
+        <%= link_to 'Salir', destroy_user_session_path %>
+    <% else %>
+        <%= link_to '> Registrarse', new_user_registration_path %>
+    <% end %>
+</div>
+<div id="contenido">
+	<div id="cabecera">
+		<img src="/images/calen.png"/> <b>Noti-Feriados</b>
+	</div>
+    <div data-role="footer" class="nav-glyphish-example">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+    <ul>
+      <li><a href="<%=inicio_url %>" id="Inicio" data-icon="custom">Inicio</a></li>
+      <li><a href="<%=clientes_url %>" id="Clientes" data-icon="custom">Clientes</a></li>
+      <li><a href="<%=feriados_url %>" id="DiasFeriados" data-icon="custom">Dias Feriados</a></li>
+      <li><a href="<%=clientes_url %>" id="email" data-icon="custom">Enviar Email</a></li>
+      <% if user_signed_in? %>
+      <li><a href="<%=destroy_user_session_path %>" id="Salir" data-icon="custom">Salir</a></li>
+      <% else %>
+       <li><a href="<%=new_user_session_path %>" id="Ingresar" data-icon="custom">
+        Ingresar</a></li>
+      <% end %> 
+    </ul>
+    </div>
+  </div>
+</div>
+<div id="contenido_principal">
+<%= yield %>
+</div>
+
+</body>
+</html>

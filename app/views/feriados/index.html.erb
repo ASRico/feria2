@@ -1,0 +1,27 @@
+<h1>Listing feriados</h1>
+
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Fecha</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @feriados.each do |feriado| %>
+  <tr>
+    <td><%= feriado.titulo %></td>
+    <td><%= feriado.fecha %></td>
+    <td><%= feriado.user_id %></td>
+    <td><%= link_to 'Show', feriado %></td>
+    <td><%= link_to 'Edit', edit_feriado_path(feriado) %></td>
+    <td><%= link_to 'Destroy', feriado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Feriado', new_feriado_path %>
