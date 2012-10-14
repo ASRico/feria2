@@ -6,17 +6,23 @@
   <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+  <script type="text/javascript" src="/assets/jquery-latest.js"></script> 
+  <script type="text/javascript" src="/assets/jquery.tablesorter.js"></script>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
 <body>
-<div id="user_nav">
+ <div id="nav">
     <% if user_signed_in? %>
-        Hola, <%= current_user.email %>!
-        <%= link_to 'Salir', destroy_user_session_path %>
+        <img src="/images/hi.png" align="left"/>&nbsp;
+        Hola, <%=current_user.email %>&nbsp;
+        <%= link_to ' Salir', destroy_user_session_path %>
+        
     <% else %>
-        <%= link_to '> Registrarse', new_user_registration_path %>
+        <img src="/images/reg.png" align="left"/>&nbsp;
+        <%= link_to 'Ingresar', new_user_session_path %>&nbsp;&nbsp;&nbsp;
+        <%= link_to 'Registrarse', new_user_registration_path %>        
     <% end %>
 </div>
 <div id="contenido">

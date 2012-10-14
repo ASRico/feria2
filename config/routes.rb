@@ -61,6 +61,7 @@ Feria2::Application.routes.draw do
   match "/clientes" => "clientes#index", :as => :clientes
   match "/feriados" => "feriados#index", :as => :feriados
   match "/inicio" => "home#index", :as => :inicio
+  match "/email" => "notificaciones#enviar", :as => :email
 
   # See how all your routes lay out with "rake routes"
 
