@@ -6,7 +6,7 @@ class Notificaciones
     lista = user.feriados.where("fecha BETWEEN ? AND ?",i,f)
 
       if lista.empty?
-        flash[:notice] = "No hay ningun feriado registrado en los proximos 15 dias."
+        # flash[:notice] = "No hay ningun feriado registrado en los proximos 15 dias."
       else
   	    Cliente.all.each do |cliente|
           lista.each { |d|
@@ -14,7 +14,7 @@ class Notificaciones
             motivo = d.titulo 
             UserMailer.notificacion_feriado(user, cliente, diaF, motivo).deliver }
         end
-        flash[:notice] = "Las notificaciones de los proximos feriados fueron enviadas con exito."
+        # flash[:notice] = "Las notificaciones de los proximos feriados fueron enviadas con exito."
       end  
     end
   end
