@@ -1,0 +1,9 @@
+<center><h2>Prueba para envio de mails</h2>
+<p>Ejecuta la tarea que revisa los feriados y envia un mail a cada cliente notificandole que se aproxima un feriado dentro de 15 dias.
+</p>
+
+<p>Haga click en notificar, y luego espere, ya que la tarea puede demorar unos minutos..</p>
+
+<% if user_signed_in? %>
+<a href="<%= runtask_url %>" data-role="button" data-theme="a" data-inline="true" data-mini="true" data-icon="info">Notificar</a></center>
+<% end %>

@@ -1,6 +1,8 @@
 Feria2::Application.routes.draw do
   get "home/index"
 
+  get "mail/index"
+
   devise_for :users
 
   resources :clientes
@@ -61,6 +63,8 @@ Feria2::Application.routes.draw do
   match "/clientes" => "clientes#index", :as => :clientes
   match "/feriados" => "feriados#index", :as => :feriados
   match "/inicio" => "home#index", :as => :inicio
+  match "/mail" => "mail#index", :as => :email
+  match "/runtask" => "mail#runTask", :as => :runtask
 
   # See how all your routes lay out with "rake routes"
 

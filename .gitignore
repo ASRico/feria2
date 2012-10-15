@@ -13,3 +13,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+.DS_Store

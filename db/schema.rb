@@ -14,17 +14,17 @@
 ActiveRecord::Schema.define(:version => 20121013000208) do
 
   create_table "clientes", :force => true do |t|
-    t.string   "nombre"
-    t.string   "pais"
-    t.string   "email"
+    t.string   "nombre",     :null => false
+    t.string   "pais",       :null => false
+    t.string   "email",      :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "feriados", :force => true do |t|
-    t.string   "titulo"
-    t.date     "fecha"
-    t.integer  "user_id"
+    t.string   "titulo",     :null => false
+    t.date     "fecha",      :null => false
+    t.integer  "user_id",    :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

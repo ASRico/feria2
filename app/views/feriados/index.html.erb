@@ -1,6 +1,6 @@
-<h1>Listing feriados</h1>
-
-<table>
+<h1>Lista de feriados</h1>
+<table id="myTable" class="tablesorter"> 
+<thead> 
   <tr>
     <th>Titulo</th>
     <th>Fecha</th>
@@ -9,19 +9,22 @@
     <th></th>
     <th></th>
   </tr>
-
+</thead> 
+<tbody> 
 <% @feriados.each do |feriado| %>
   <tr>
     <td><%= feriado.titulo %></td>
     <td><%= feriado.fecha %></td>
     <td><%= feriado.user_id %></td>
-    <td><%= link_to 'Show', feriado %></td>
-    <td><%= link_to 'Edit', edit_feriado_path(feriado) %></td>
-    <td><%= link_to 'Destroy', feriado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><img src="/images/startupeye.png" align="left"/>&nbsp;&nbsp;<%= link_to 'Ver', feriado %></td>
+    <td><img src="/images/edit.png" align="left"/>&nbsp;&nbsp;<%= link_to 'Editar', edit_feriado_path(feriado) %></td>
+    <td><img src="/images/delete.png" align="left"/>&nbsp;&nbsp;<%= link_to 'Borrar', feriado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+</tbody> 
 </table>
 
 <br />
-
-<%= link_to 'New Feriado', new_feriado_path %>
+<% if user_signed_in? %>
+<a href="<%= new_feriado_path %>" data-role="button" data-inline="true" data-mini="true" data-icon="plus">Nuevo Feriado</a>
+<% end %>
